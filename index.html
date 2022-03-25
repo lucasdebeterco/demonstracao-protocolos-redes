@@ -1,29 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/sweetalert2.all.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>Document</title>
 </head>
 <body>
 
-    <div class="container">
-        <div class="content">
-            <div class="step first-step flex justify-center">
-                unidavi.edu.br
-            </div>
-            <div class="step sencond-step ">
-                bloco 2
-            </div>
-            <div class="step third-step">
-                bloco 3
-            </div>
-        </div>
-    </div>
-    <script>
-
-    </script>
+	<div class="container">
+			<div class="content">
+					<div class="step first-step flex column align-center ">
+							<button id="start"> INICIAR PROCESSO </button>
+							<input type="text" name="url" id="url"><br><br>
+							<span class="passo passo-quatro" style="display: none">
+									DNS RESOLVIDO
+							</span>
+							<span class="passo passo-sete" style="display: none">
+									STATUS 200
+							</span>
+							<span class="passo passo-dez" style="display: none">
+									Olá Mundo!
+							</span>
+					</div>
+					<div class="step second-step flex column align-center">
+							<span class="passo passo-dois" style="display: none">
+									>>> DNS >>>
+							</span>
+							<span class="passo passo-tres" style="display: none">
+									<<< DNS <<<
+							</span>
+							<span class="passo passo-cinco" style="display: none">
+									>>> TCP >>>
+							</span>
+							<span class="passo passo-seis" style="display: none">
+									<<< TCP <<<
+							</span>
+							<span class="passo passo-oito" style="display: none">
+									>>> http >>>
+							</span>
+							<span class="passo passo-nove" style="display: none">
+									<<< http <<<
+							</span>
+					</div>
+					<div class="step third-step flex justify-center">
+							Servidor de DNS<br><br>
+							www.unidavi.edu.br == 192.168.0.1
+							</span><br><br><br>
+							_________
+							<br><br><br>
+							Servidor <br><br>
+							&lt;!DOCTYPE html&gt;<br>
+							&lt;html lang="en"&gt;<br>
+							&lt;head&gt;<br>
+									&lt;meta charset="UTF-8"&gt;<br>
+									&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br>
+									&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+									&lt;title&gt;Document&lt;/title&gt;<br>
+							&lt;/head&gt;<br>
+							&lt;body&gt;<br>
+									Olá Mundo!<br>
+							&lt;/body&gt;<br>
+							&lt;/html&gt;<br>
+					</div>
+			</div>
+	</div>
+	<script>
+		$(function() {
+			$("#start").click(function(){
+				$(".passo-dois").fadeIn(500).delay(2000).queue(function() {
+					$(".passo-tres").fadeIn(500).delay(2000).queue(function() {
+						if( $('#url').val() == 'www.unidavi.edu.br') {
+							$(".passo-quatro").fadeIn(500).delay(2000).queue(function() {
+								$(".passo-cinco").fadeIn(500).delay(2000).queue(function() {
+									$(".passo-seis").fadeIn(500).delay(2000).queue(function() {
+										$(".passo-sete").fadeIn(500).delay(2000).queue(function() {
+											$(".passo-oito").fadeIn(500).delay(2000).queue(function() {
+												$(".passo-nove").fadeIn(500).delay(2000).queue(function() {
+													$(".passo-dez").fadeIn(500).delay(2000).queue(function() {
+														Swal.fire(
+															'HTML:',
+															'Olá Mundo!',
+															'success'
+														);
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						} else {
+							Swal.fire({
+								icon: 'error',
+								title: '404 Not Found',
+								text: '',
+							})
+						}
+					});
+				});
+			});
+		})
+	</script>
 </body>
 </html>
+
+
+
+
